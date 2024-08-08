@@ -6,14 +6,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [items, setItem] = useState([]);
+  const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
     async function fetchItems() {
       const result = await axios.get(`https://www.breakingbadapi.com/api/characters?name=${query}`);
-      setItem(result.data);
+      setItems(result.data);
       setIsLoading(false);
     }
     fetchItems()
